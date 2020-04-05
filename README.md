@@ -1,53 +1,33 @@
-# Udagram Image Filtering Microservice
+# Project 3 - Refactor Udagram app into Microservices and Deploy
 
 Udagram is a simple cloud application developed alongside the Udacity Cloud Engineering Nanodegree. It allows users to register and log into a web client, post photos to the feed, and process photos using an image filtering microservice.
 
-The project is split into three parts:
-1. [The Simple Frontend](/udacity-c3-frontend)
-A basic Ionic client web application which consumes the RestAPI Backend. 
-2. [The RestAPI Feed Backend](/udacity-c3-restapi-feed), a Node-Express feed microservice.
-3. [The RestAPI User Backend](/udacity-c3-restapi-user), a Node-Express user microservice.
+The project is split into four parts:
+1. [The Simple Frontend] udacity-c3-frontend - For Ionic client web application, which consumes the RestAPI Backend
+2. [The RestAPI Feed Backend] udacity-c3-restapi-feed - For "feed" microservice
+3. [The RestAPI User Backend] udacity-c3-restapi-user - For "user" microservice
+4. [The Reverse Proxy] udacity-c3-deployment/docker - For running the Nginx as a reverse-proxy server
 
-## Getting Setup
+**The code and screenshots are available on github:
+https://github.com/Guihosse/udcdndpjt3.git
 
-> _tip_: this frontend is designed to work with the RestAPI backends). It is recommended you stand up the backend first, test using Postman, and then the frontend should integrate.
+**The docker images have been pushed to docker hub:
+https://hub.docker.com/repository/docker/guihosse/udacity-restapi-feed
+https://hub.docker.com/repository/docker/guihosse/udacity-restapi-user
+https://hub.docker.com/repository/docker/guihosse/udacity-frontend
+https://hub.docker.com/repository/docker/guihosse/reverseproxy
 
-### Installing Node and NPM
-This project depends on Nodejs and Node Package Manager (NPM). Before continuing, you must download and install Node (NPM is included) from [https://nodejs.com/en/download](https://nodejs.org/en/download/).
+## clone the project from github
 
-### Installing Ionic Cli
-The Ionic Command Line Interface is required to serve and build the frontend. Instructions for installing the CLI can be found in the [Ionic Framework Docs](https://ionicframework.com/docs/installation/cli).
+## create kubernete infrastructure
 
-### Installing project dependencies
+## configure configmap and secrets
 
-This project uses NPM to manage software dependencies. NPM Relies on the package.json file located in the root of this repository. After cloning, open your terminal and run:
-```bash
-npm install
-```
->_tip_: **npm i** is shorthand for **npm install**
+## deploy the application using deployment files
 
-### Setup Backend Node Environment
-You'll need to create a new node server. Open a new terminal within the project directory and run:
-1. Initialize a new project: `npm init`
-2. Install express: `npm i express --save`
-3. Install typescript dependencies: `npm i ts-node-dev tslint typescript  @types/bluebird @types/express @types/node --save-dev`
-4. Look at the `package.json` file from the RestAPI repo and copy the `scripts` block into the auto-generated `package.json` in this project. This will allow you to use shorthand commands like `npm run dev`
+## connect the deployment with service
+
+## expose the application locally
 
 
-### Configure The Backend Endpoint
-Ionic uses enviornment files located in `./src/enviornments/enviornment.*.ts` to load configuration variables at runtime. By default `environment.ts` is used for development and `enviornment.prod.ts` is used for produciton. The `apiHost` variable should be set to your server url either locally or in the cloud.
 
-***
-### Running the Development Server
-Ionic CLI provides an easy to use development server to run and autoreload the frontend. This allows you to make quick changes and see them in real time in your browser. To run the development server, open terminal and run:
-
-```bash
-ionic serve
-```
-
-### Building the Static Frontend Files
-Ionic CLI can build the frontend into static HTML/CSS/JavaScript files. These files can be uploaded to a host to be consumed by users on the web. Build artifacts are located in `./www`. To build from source, open terminal and run:
-```bash
-ionic build
-```
-***
